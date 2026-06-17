@@ -19,7 +19,7 @@
 
 - [Project Overview](#project-overview)
 - [Hardware Architecture](#hardware-architecture)
-- [Schematic Block-by-Block Explanation](#schematic-block-by-block-explanation)
+- [Schematic Block-by-Block Explanation](#schematic)
 - [Firmware Overview](#firmware-overview)
 - [Operating Modes](#operating-modes)
 - [Calibration System](#calibration-system)
@@ -31,7 +31,6 @@
 - [Bill of Materials](#bill-of-materials)
 - [Pin Assignment](#pin-assignment)
 - [Specifications](#specifications)
-- [Media & Documentation](#media--documentation)
 - [Team](#team)
 - [License](#license)
 
