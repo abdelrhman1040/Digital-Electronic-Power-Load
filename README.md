@@ -38,7 +38,7 @@
 
 ## Project Overview
 
-The **Digital Electronic Power Load** is designed to operate as an adjustable electrical load that draws a precisely controlled amount of current from a power source under test. while simultaneously displaying voltage, current, power, capacity, and temperature in real time.
+The **Digital Electronic Power Load** is designed to operate as an adjustable electrical load that draws a precisely controlled amount of current from a power source under test, while simultaneously displaying voltage, current, power, capacity, and temperature in real time.
 
 ---
 
