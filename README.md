@@ -17,7 +17,7 @@
 
 ## Table of Contents
 
-- [Project Overview](#-project-overview)
+- [Project Overview](#-Project-Overview)
 - [Hardware Architecture](#-hardware-architecture)
 - [Schematic Block-by-Block Explanation](#-schematic-block-by-block-explanation)
 - [Firmware Overview](#-firmware-overview)
