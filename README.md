@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/Language-C%20%7C%20Python%20%7C%20Arduino-lightgrey.svg" alt="Language"/>
 </p>
 
-> DC electronic load built around the STM32F103C8 microcontroller. Capable of stress-testing batteries, power adapters.
+> DC electronic load built around the STM32F103C8 microcontroller. Capable of stress-testing power supplies and batteries.
 
 ---
 
