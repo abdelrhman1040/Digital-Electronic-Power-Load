@@ -918,6 +918,14 @@ Full STM32F103C8 pin mapping:
 
 ---
 
+## Team
+
+*Name*  
+[Abdelrahman Alaa](https://github.com/abdelrhman1040)  
+[Mariam Hamza](https://github.com/mariam442)
+
+---
+
 ## License
 
 This project is released under the [GNU General Public License](LICENSE). See the `LICENSE` file for full terms.
