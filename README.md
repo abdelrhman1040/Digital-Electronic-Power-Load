@@ -1,7 +1,7 @@
 # Digital Electronic Power Load
 
 <p align="center">
-  <img src="docs/images/project_photo.jpg" alt="Digital Electronic Power Load" width="700"/>
+  <img src="Images/project_photo.jpg" alt="Digital Electronic Power Load" width="700"/>
 </p>
 
 <p align="center">
@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/Language-C%20%7C%20Python%20%7C%20Arduino-lightgrey.svg" alt="Language"/>
 </p>
 
-> DC electronic load built around the STM32F103C8 microcontroller. Capable of stress-testing batteries and power adapters.
+> DC electronic load built around the STM32F103C8 microcontroller. Capable of stress-testing batteries, power adapters.
 
 ---
 
@@ -96,14 +96,16 @@ This elegant 1:1 ratio means **1 V DAC output = 1 A load current**, directly.
 
 ## Schematic
 
-The complete schematic is located at [`hardware/schematic/`](hardware/schematic/). Below is a detailed explanation of every functional block.
+<p align="center">
+  <img src="Images/schematic/Schematic.png" alt="Schematic"/>
+</p>
 
 ---
 
 ### 1. STM32F103C8 Microcontroller
 
-<p align="center">
-  <img src="docs/images/schematic/stm32_schematic.png" alt="STM32 Schematic" width="600"/>
+<p align="left">
+  <img src="Images/schematic/STM32.png" alt="STM32 Schematic" width="600"/>
 </p>
 
 The **STM32F103C8** is the central control unit. It does **not** directly handle the high load current — instead, it coordinates all other blocks.
@@ -123,8 +125,8 @@ The **STM32F103C8** is the central control unit. It does **not** directly handle
 
 ### 2. Current Flow Controller
 
-<p align="center">
-  <img src="docs/images/schematic/power_stage_schematic.png" alt="Power Stage Schematic" width="600"/>
+<p align="left">
+  <img src="Images/schematic/current_flow_controller.png" alt="Current Flow Controller Schematic" width="500"/>
 </p>
 
 This is the heart of the load. It consists of:
@@ -160,8 +162,8 @@ I_LOAD = V_ANALOG / R_SHUNT = V_ANALOG / 1 Ω
 
 ### 3. Digital-to-Analog Converter (DAC)
 
-<p align="center">
-  <img src="docs/images/schematic/dac_schematic.png" alt="DAC Schematic" width="400"/>
+<p align="left">
+  <img src="Images/schematic/DAC.png" alt="DAC Schematic" width="500"/>
 </p>
 
 **Component:** MCP4725 Module 
@@ -184,8 +186,8 @@ The MCP4725 is a **12-bit DAC** connected to the STM32 via **I²C2** (SDA1, SCL1
 
 ### 4. Analog-to-Digital Converter (ADC)
 
-<p align="center">
-  <img src="docs/images/schematic/adc_schematic.png" alt="ADC Schematic" width="500"/>
+<p align="left">
+  <img src="Images/schematic/ADC.png" alt="ADC Schematic" width="500"/>
 </p>
 
 **Component:** ADS1115 Module
@@ -214,8 +216,8 @@ D = (V_analog × 2^16) / V_REF
 
 ### 5. Voltage Sensing
 
-<p align="center">
-  <img src="docs/images/schematic/voltage_sensor_schematic.png" alt="Voltage Sensing Schematic" width="500"/>
+<p align="left">
+  <img src="Images/schematic/V_SENSOR.png" alt="Voltage Sensing Schematic" width="500"/>
 </p>
 
 Since the load can accept up to 40 V but the ADS1115 operates at 5 V, two resistor voltage dividers scale the input voltage to a safe ADC range.
@@ -238,8 +240,8 @@ V_SENSOR = V_IN × R2 / (R1 + R2)
 
 ### 6. Current Sensing
 
-<p align="center">
-  <img src="docs/images/schematic/current_sensor_schematic.png" alt="Current Sensing Schematic" width="350"/>
+<p align="left">
+  <img src="Images/schematic/I_SENSOR.png" alt="Current Sensing Schematic" width="200"/>
 </p>
 
 The load current is sensed via the **1 Ω shunt resistor (R63)**. The voltage across it (`V_SHUNT = I × 1 Ω`) is scaled before reaching the ADS1115 ADC input.
@@ -254,8 +256,8 @@ The load current is sensed via the **1 Ω shunt resistor (R63)**. The voltage ac
 
 ### 7. Temperature Monitoring 
 
-<p align="center">
-  <img src="docs/images/schematic/temp_sensor_schematic.png" alt="Temperature Schematic" width="500"/>
+<p align="left">
+  <img src="Images/schematic/TEMP.png" alt="Temperature Schematic" width="500"/>
 </p>
 
 Three **NTC thermistor circuits** (FAN_TEMP, TEMP1, TEMP2) are used for thermal monitoring. **TEMP1** and **TEMP2** are dedicated to measuring the temperature of the power source being tested, while **FAN_TEMP** monitors the heat near the fan heatsink. Each thermistor forms a voltage divider with a fixed resistor against the +3.3 V rail.
@@ -288,8 +290,8 @@ Three **NTC thermistor circuits** (FAN_TEMP, TEMP1, TEMP2) are used for thermal 
 
 ### 8. Fan and Cooling System
 
-<p align="center">
-  <img src="docs/images/schematic/fan_schematic.png" alt="Fan Schematic" width="600"/>
+<p align="left">
+  <img src="Images/schematic/FAN.png" alt="Fan Schematic" width="600"/>
 </p>
 
 **Fan Driver Circuit:**
@@ -316,8 +318,8 @@ Three **NTC thermistor circuits** (FAN_TEMP, TEMP1, TEMP2) are used for thermal 
 
 ### 9. OLED Display 
 
-<p align="center">
-  <img src="docs/images/schematic/oled_schematic.png" alt="OLED Schematic" width="400"/>
+<p align="left">
+  <img src="Images/schematic/OLED.png" alt="OLED Schematic" width="400"/>
 </p>
 
 **Component:** SSD1306 128×64 OLED 
@@ -340,8 +342,9 @@ Connected to the STM32 via **I²C2** (shared with the MCP4725 DAC on SDA1/SCL1 w
 
 ### 10. Rotary Encoder and Buttons
 
-<p align="center">
-  <img src="docs/images/schematic/encoder_buttons_schematic.png" alt="Encoder & Buttons Schematic" width="600"/>
+<p align="left">
+  <img src="Images/schematic/Rotar_Encoder.png" alt="Rotary Encoder Schematic" width="350"/>
+  <img src="Images/schematic/Buttons.png" alt="Buttons Schematic" width="390"/>
 </p>
 
 **Rotary Encoder (SW6, EC11):**
@@ -363,8 +366,8 @@ Connected to the STM32 via **I²C2** (shared with the MCP4725 DAC on SDA1/SCL1 w
 
 ### 11. ESP8266 Wi-Fi Module
 
-<p align="center">
-  <img src="docs/images/schematic/esp8266_schematic.png" alt="ESP8266 Schematic" width="600"/>
+<p align="left">
+  <img src="Images/schematic/ESP8266.png" alt="ESP8266 Schematic" width="600"/>
 </p>
 
 The ESP8266 provides Wi-Fi connectivity for real-time telemetry streaming.
@@ -412,8 +415,8 @@ Connected to STM32 via SPI with dedicated chip-select:
 
 ### 13. Buzzer 
 
-<p align="center">
-  <img src="docs/images/schematic/buzzer_schematic.png" alt="Buzzer Schematic" width="350"/>
+<p align="left">
+  <img src="Images/schematic/BUZZER.png" alt="Buzzer Schematic" width="350"/>
 </p>
 
 **Component:** Passive buzzer, 2.3 kHz resonant frequency
@@ -633,7 +636,7 @@ On first boot (no credentials saved), the ESP creates a Wi-Fi access point named
 ## PC Dashboard Software
 
 <p align="center">
-  <img src="docs/images/dashboard_screenshot.png" alt="Dashboard Screenshot" width="800"/>
+  <img src="Images/dashboard.png" alt="Dashboard Screenshot" width="800"/>
 </p>
 
 The Python Qt dashboard (`tools/pc_dashboard/graph.py`) connects to the ESP8266 over TCP and displays live graphs.
@@ -726,32 +729,32 @@ digital-electronic-power-load/
 │
 ├── Core/
 │   ├── Inc/
+│   │   ├── ads1115.h                     # 16-bit ADC I²C driver header
+│   │   ├── encoder.h                     # Rotary encoder header
+│   │   ├── fonts.h                       # Font definitions for OLED
 │   │   ├── main.h                        # Pin definitions, HAL includes
-│   │   └── stm32f1xx_hal_conf.h          # HAL module selection
+│   │   ├── mcp4725.h                     # 12-bit DAC I²C driver header
+│   │   ├── ssd1306.h                     # OLED I²C driver header
+│   │   ├── stm32f1xx_hal_conf.h          # HAL module selection
+│   │   └── stm32f1xx_it.h                # Interrupt service routines header
 │   └── Src/
-│       ├── main.c                        # Main firmware (v4.1, 2400+ lines)
+│       ├── ads1115.c                     # 16-bit ADC I²C driver source
+│       ├── encoder.c                     # Rotary encoder source
+│       ├── fonts.c                       # Font definitions source
+│       ├── main.c                        # Main firmware
+│       ├── mcp4725.c                     # 12-bit DAC I²C driver source
+│       ├── ssd1306.c                     # OLED I²C driver source
 │       ├── stm32f1xx_hal_msp.c           # MSP peripheral init callbacks
-│       └── stm32f1xx_it.c               # Interrupt service routines
-│
-├── Drivers/
-│   ├── STM32F1xx_HAL_Driver/             # ST HAL library (unmodified)
-│   └── CMSIS/                            # ARM CMSIS core files
-│
-├── Lib/
-│   ├── ssd1306/
-│   │   ├── ssd1306.h / ssd1306.c         # OLED I²C driver
-│   │   └── fonts.h                       # Font_7x10, Font_11x18
-│   ├── mcp4725/
-│   │   ├── mcp4725.h / mcp4725.c         # 12-bit DAC I²C driver
-│   └── ads1115/
-│       ├── ads1115.h / ads1115.c         # 16-bit ADC I²C driver
-│
+│       ├── stm32f1xx_it.c                # Interrupt service routines
+│       ├── syscalls.c                    # System calls
+│       ├── sysmem.c                      # System memory management
+│       └── system_stm32f1xx.c            # CMSIS Cortex-M3 Device Peripheral Access Layer
+│  
 ├── hardware/
 │   ├── schematic/
 │   │   ├── Schematic.pdf                 # Full EasyEDA schematic export 
 │   │   └── Schematic.png                 # Schematic image for README     
 │   ├── pcb/
-│   │   ├── PCB_Layout.pdf                # PCB layout export              
 │   │   └── PCB_Layout.png                # PCB image for README          
 │   └── bom/
 │       └── BOM.csv                       # Bill of materials
@@ -762,22 +765,31 @@ digital-electronic-power-load/
 │   └── esp8266_firmware/
 │       └── esp8266.ino                   # ESP8266 TCP server + LittleFS
 │
-├── docs/
-│   ├── report/
-│   │   ├── new_report.pdf                # Full ECE346 project report     
-│   │   └── old_report.pdf                # Previous version report        
-│   ├── presentation/
-│   │   └── presentation.pdf              # Project slides                  
-│   └── images/
-│       ├── project_photo.jpg             # Hardware photo                  
-│       ├── dashboard_screenshot.png      # Dashboard screenshot           
-│       ├── pcb_photo.jpg                 # PCB assembled photo            
-│       └── schematic/
-│           ├── stm32_schematic.png       # Per-block schematic images      
-│           ├── power_stage_schematic.png
-│           ├── dac_schematic.png
-│           ├── adc_schematic.png
-│           └── ...
+├── Images/
+│   ├── dashboard.png                     # Dashboard screenshot           
+│   ├── pcb_photo.jpg                     # PCB design/layout photo            
+│   ├── project_photo.jpg                 # Assembled hardware photo                  
+│   └── schematic/
+│       ├── +3V3.png                      # 3.3V power supply schematic
+│       ├── +5V.png                       # 5V power supply schematic
+│       ├── ADC.png                       # ADC block schematic
+│       ├── Buttons.png                   # Push buttons schematic
+│       ├── BUZZER.png                    # Buzzer schematic
+│       ├── current_flow_controller.png   # Current flow controller schematic
+│       ├── DAC.png                       # DAC block schematic
+│       ├── DC.png                        # DC power input schematic
+│       ├── ESP8266.png                   # ESP8266 module schematic
+│       ├── FAN.png                       # Cooling fan schematic
+│       ├── I_SENSOR.png                  # Current sensor schematic
+│       ├── LEDs.png                      # Indicator LEDs schematic
+│       ├── OLED.png                      # OLED display schematic
+│       ├── power_stage.png               # Main power stage schematic
+│       ├── Rotar_Encoder.png             # Rotary encoder schematic
+│       ├── Schematic.png                 # Full schematic overview
+│       ├── SD_Card.png                   # SD Card module schematic
+│       ├── STM32.png                     # STM32 microcontroller schematic
+│       ├── TEMP.png                      # Temperature sensor schematic
+│       └── V_SENSOR.png                  # Voltage sensor schematic
 │
 ├── media/
 │   └── demo_video.mp4                    # Project demo video             
@@ -883,46 +895,13 @@ Full STM32F103C8 pin mapping:
 
 ---
 
-## Media & Documentation
-
->  media files.
-
-### Project Photos
-
-| Front View | PCB Layout |
-|---|---|
-| ![Project Photo](docs/images/project_photo.jpg) | ![PCB Photo](docs/images/pcb_photo.jpg) |
-
-### Dashboard Screenshot
-
-![Dashboard](docs/images/dashboard_screenshot.png)
-
 ### PCB Design
 
-![PCB Layout](hardware/pcb/PCB_Layout.png)
-
-### Schematic
-
-![Full Schematic](hardware/schematic/Schematic.png)
+![PCB Layout](Images/pcb_photo.jpg)
 
 ### Demo Video
 
-<!-- Option A: Embedded YouTube (recommended for large files) -->
-[![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/YOUR_VIDEO_ID)
-
-<!-- Option B: Local video file (GitHub renders mp4 in README on some clients) -->
-<!-- [Watch Demo Video](media/demo_video.mp4) -->
-
----
-
-## Team
-
-**Names**  
-Abdelrahman Alaa  
-Amro Mostafa  
-Mariam Hamza  
-Mohamed Medhat   
-Rofida Elshobaky  
+![Watch Demo Video](media/demo_video.mp4)
 
 ---
 
