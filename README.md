@@ -31,7 +31,7 @@
 - [Bill of Materials](#bill-of-materials)
 - [Pin Assignment](#pin-assignment)
 - [Specifications](#specifications)
-- [Team](#team)
+- [Team](#team-members)
 - [License](#license)
 
 ---
@@ -918,9 +918,8 @@ Full STM32F103C8 pin mapping:
 
 ---
 
-## Team
+## Team Members
 
-*Name*  
 [Abdelrahman Alaa](https://github.com/abdelrhman1040)  
 [Mariam Hamza](https://github.com/mariam442)
 
