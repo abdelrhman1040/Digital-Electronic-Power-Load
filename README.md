@@ -60,6 +60,7 @@ The **Digital Electronic Power Load** is designed to operate as an adjustable el
 │              │          ┌──────────▲───┐       │                 │
 │              │          │    Op-Amp    │       │                 │
 │              │          │  TLV2372IDR  │       │                 │
+│              │          │    V⁺    V⁻  │       │                 │
 │              │          └────┬─────┬───┘       │                 │
 │              │               │     │    ┌──────▼──────┐          │
 │              │               │     │    │ IRF9640PBF  │          │
