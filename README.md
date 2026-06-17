@@ -922,6 +922,9 @@ Full STM32F103C8 pin mapping:
 
 [Abdelrahman Alaa](https://github.com/abdelrhman1040)  
 [Mariam Hamza](https://github.com/mariam442)
+Amro Mostafa  
+Mohamed Medhat   
+Rofida Elshobaky  
 
 ---
 
